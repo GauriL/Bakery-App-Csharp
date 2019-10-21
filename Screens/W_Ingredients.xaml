@@ -1,0 +1,61 @@
+﻿<Window x:Class="Wpf_BakeryManagement.W_Ingredients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_BakeryManagement"
+        mc:Ignorable="d" Loaded="Window_Loaded" 
+        Title="W_Ingredients" Height="680" Width="980" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="BAKERY MANAGEMENT SYSTEM" FontSize="28" FontWeight="Bold" VerticalAlignment="Top" TextAlignment="Center" RenderTransformOrigin="-0.574,0.375" Height="35" Width="970"/>
+
+        <TextBox x:Name="Tbx_filter" HorizontalAlignment="Left" Height="33" Margin="98,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" ToolTip="Please enter ingredient name to filter" TextChanged="Tbx_filter_TextChanged"/>
+        <ListBox x:Name="Lbx_ingredient" DisplayMemberPath="name" HorizontalAlignment="Left" Height="236" Margin="100,358,0,0" VerticalAlignment="Top" Width="217"/>
+
+        <ListBox x:Name="Lbx_ingredients" DisplayMemberPath="name" HorizontalAlignment="Left" Height="161" Margin="96,123,0,0" VerticalAlignment="Top" Width="217" />
+
+        <StackPanel HorizontalAlignment="Left" Height="434" Margin="349,126,0,0" VerticalAlignment="Top" Width="613" DataContext="{Binding ElementName=Lbx_ingredient, Path=SelectedItem}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Margin="0,5,0,0" HorizontalAlignment="Left" Width="378">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="32" Width="118" Margin="10,0,0,0"/>
+                <TextBox   Text="{Binding name}" TextWrapping="Wrap" Width="215" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Margin="0,5,0,0" HorizontalAlignment="Left" Width="378">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Type" VerticalAlignment="Top" Height="32" Width="118" Margin="10,0,0,0"/>
+                <TextBox  TextWrapping="Wrap" Width="215" />
+            </StackPanel>
+            <StackPanel Height="131" Margin="0,10,269,10">
+                <TextBlock TextWrapping="Wrap" Text="Quantity" Margin="10,0,0,0" Height="40"/>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Margin="0,5,0,0" HorizontalAlignment="Left" Width="378">
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Available" VerticalAlignment="Top" Height="32" Width="118" Margin="10,0,0,0"/>
+                    <TextBox  TextWrapping="Wrap" Width="215" Text="{Binding available}"  />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Margin="0,5,0,0" HorizontalAlignment="Left" Width="378" RenderTransformOrigin="0.502,1.109" Height="30">
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Minimum Required" VerticalAlignment="Top" Height="32" Width="118" Margin="10,0,0,-2"/>
+                    <TextBox TextWrapping="Wrap" Width="215" Text="{Binding minimum }" />
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top"  Margin="0,5,0,0" HorizontalAlignment="Left" Width="378">
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cost per (Kg/Ltr)" VerticalAlignment="Top" Height="32" Width="118" Margin="10,0,0,0"/>
+                <TextBox TextWrapping="Wrap" Width="215" Text="{Binding cost}" />
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel Margin="100,599,632,4" Orientation="Horizontal">
+            <Button x:Name="Btn_Add" Content="Add" Foreground="Green" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Click="Btn_Add_Click" Height="34" Margin="0,0,0,-2"/>
+
+            <Button x:Name="Btn_Delete" Content="Delete" Foreground="Red" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Click="Btn_Delete_Click" Height="34"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="8,30,0,0"  TextWrapping="Wrap" Text="Ingredients" VerticalAlignment="Top" Height="24" FontWeight="Bold" FontSize="18" Width="168"/>
+
+        <Label Content="Critical Ingredients" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="85,88,0,0" VerticalAlignment="Top" Height="40" Width="217"/>
+        <Button x:Name="Btn_HamburgerMenu"  Content="" Margin="22,77,898,534" RenderTransformOrigin="0.5,0.5">
+            <Button.Background>
+                <ImageBrush ImageSource="/Wpf_BakeryManagement;component/hamburger.png"/>
+            </Button.Background>
+        </Button>
+        <StackPanel HorizontalAlignment="Left" Height="467" Margin="5,125,0,0" VerticalAlignment="Top" Width="86"/>
+
+
+    </Grid>
+</Window>
